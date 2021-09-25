@@ -9,29 +9,29 @@ fun <K,V>compare(p1: Pair<K,V>, p2: Pair<K,V>): Boolean {
 }
 
 // 2.
-fun <Any: Comparable<Any>>countGreaterThan(anArray: Array<Any>, elem: Any): Int {
+fun <T: Comparable<T>>countGreaterThan(anArray: Array<T>, elem: T): Int {
     return anArray.filter { it > elem }.count()
 }
 
 // 3.
-class Sorter<Any: Comparable<Any>> {
-    val list: MutableList<Any> = mutableListOf()
+class Sorter<T: Comparable<T>> {
+    val list: MutableList<T> = mutableListOf()
 
-    fun add(value: Any) {
+    fun add(value: T) {
         list.add(value)
         list.sort()
     }
 }
 
 // 4.
-class Stack<Any> {
-    private val stackListOwn: MutableList<Any> = mutableListOf()
+class Stack<T> {
+    private val stackListOwn: MutableList<T> = mutableListOf()
 
-    fun push(elem: Any) {
+    fun push(elem: T) {
         stackListOwn.add(elem)
     }
 
-    fun pop(): Any {
+    fun pop(): T {
         if (isEmpty())
             return throw IndexOutOfBoundsException("Мы уже всё удалили:(")
         else {
